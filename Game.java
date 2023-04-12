@@ -1,3 +1,5 @@
+package hangman2;
+
 import java.util.Scanner;
 
 public class Game 
@@ -10,12 +12,18 @@ public class Game
 		System.out.println("Themes: ");
 		System.out.println();
 		System.out.println("Cars (a):");
-		System.out.println("Food (b)");
-		System.out.println("Massachusetts (c)");
+		System.out.println("Food (b):");
+		System.out.println("Massachusetts (c):");
 		
 		char c = input.next().charAt(0);
 		
-		if(c == 'c')
+		if(c < 'a' || c > 'c')
+		{
+			System.out.println("Please choose a number.");
+			System.exit(0);
+		}
+		
+		else if(c == 'c')
 		{
 			System.out.println("For cities in Massachusetts try using captial letters.");
 		}
@@ -23,7 +31,7 @@ public class Game
 		HangmanGame hGame = new HangmanGame(c);
 		
 		//For Debugging
-		System.out.println(hGame.getWordToSolve());
+		//System.out.println(hGame.getWordToSolve());
 		
 		//Prepare the game by setting every letter in the word to " __ "
 		String[] arr = hGame.startingWord();
